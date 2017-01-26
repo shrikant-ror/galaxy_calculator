@@ -4,7 +4,7 @@ module GalaxyCalculator
 
 	# Check each line whether it is assignment line, credit line, question line or calculation line
 	# Other wise return error message.
-  def self.compute_line(line)
+  def self.compute_line(line: line)
     literals = line.split
     if literals.size == 3 && literals[1] === 'is'
       Galaxy.set_galaxy_units(unit: literals[0], value: literals[2])
@@ -26,6 +26,6 @@ module GalaxyCalculator
 
   # Read the specified file
   def self.read_file(file)
-    File.read(file).each_line { |line| compute_line(line) }
+    File.read(file).each_line { |line| compute_line(line: line) }
   end
 end

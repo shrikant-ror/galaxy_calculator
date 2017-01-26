@@ -14,7 +14,7 @@ module GalaxyCalculator
     }
 
     # Convert roman unit into roman numeral using ROMAN_LITERALS hash
-    def self.roman_units_to_numeral(roman_unit)
+    def self.roman_units_to_numeral(roman_unit: required)
       total = 0
       ROMAN_HASH_MAP.each do |key, value|
         while roman_unit.index(key) == 0

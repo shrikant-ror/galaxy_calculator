@@ -9,9 +9,13 @@ module GalaxyCalculator
       @metal_values[metal] = credits.to_i / numeral.to_f
     end
 
+    def self.get_metal_values(metal: metal)
+      @metal_values[metal]
+    end
+
     # Calculate the metal values
     def self.calculate_metal_values(galaxy_units: required, metal: required)
-      (Galaxy.galaxy_units_to_roman_units(galaxy_units: galaxy_units) * @metal_values[metal]).to_i
+      (Galaxy.galaxy_units_to_roman_units(galaxy_units: galaxy_units) * get_metal_values(metal: metal)).to_i
     end
   end
 end
